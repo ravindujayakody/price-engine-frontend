@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-12">
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th rowspan="2" scope="col">#</th>
+          <th rowspan="2" scope="col">Name</th>
+          <th rowspan="2" scope="col">Units Per Carton</th>
+          <th rowspan="2" scope="col">Carton Price</th>
+          <th scope="col" colspan="50">Quantity</th>
+        </tr>
+        <tr>
+          <ng-container *ngFor="let qty of oneToFiftyQtyLabels; index as y">
+            <td *ngIf="y > 0">{{ qty | number }}</td>
+          </ng-container>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let productLine of productPriceTable; index as i">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>
+            {{ productLine.product?.name }}
+          </td>
+          <td>{{ productLine.product?.unitsPerCarton | number }}</td>
+          <td>{{ productLine.product?.cartonPrice | number }}</td>
+          <ng-container *ngFor="let priceLine of productLine.priceLines; index as x" >
+            <td *ngIf="x > 0">{{ priceLine.price | currency }}</td>
+          </ng-container>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

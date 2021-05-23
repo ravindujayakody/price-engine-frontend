@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-6">
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Units Per Carton</th>
+        <th scope="col">Carton Price</th>
+        <th scope="col">#</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let product of products; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>
+          {{ product.name }}
+        </td>
+        <td>{{ product.unitsPerCarton | number }}</td>
+        <td>{{ product.cartonPrice | number }}</td>
+        <td><button class="btn btn-outline-primary" (click)="addToCart(product)">Buy</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-6">
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Purchase Quantity</th>
+        <th scope="col">Price</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let cartProduct of cartProducts; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ cartProduct.product.name }}</td>
+        <td><input class="form-control" [(ngModel)]="cartProduct.purchaseQuantity" (blur)="calculatePrice(cartProduct)"/></td>
+        <td>{{ cartProduct.price | currency }}</td>
+      </tr>
+      </tbody>
+      <tfoot>
+      <tr>
+        <th scope="row"></th>
+        <td colspan="2">Total</td>
+        <td>{{ cartProductTotal$ | async | currency }}</td>
+      </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>

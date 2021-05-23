@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+
+.text-white {
+  color: #fff !important;
+}
+.mr-2 {
+  margin-right: 2rem;
+}
+
+/* tables*/
+.table-bordered {
+  border: 1px solid #dee2e6;
+}
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+}
+table {
+  border-collapse: collapse;
+}
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+.table-bordered thead td, .table-bordered thead th {
+  border-bottom-width: 2px;
+}
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+}
+.table-bordered td, .table-bordered th {
+  border: 1px solid #dee2e6;
+}
+.table td, .table th {
+  padding: .75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+th {
+  text-align: inherit;
+}
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
